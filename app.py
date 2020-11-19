@@ -447,8 +447,8 @@ def quote():
 
         url = 'http://protec.abcdelseguro.com/Account/Login?localAppReturn=%2fLogin.aspx&app=10&test=http%3a%2f%2fhomeowner.abcdelseguro.com'
         browser.get(url)
-        browser.find_element_by_name('username').send_keys('upall')
-        browser.find_element_by_name('password').send_keys('mae790')
+        browser.find_element_by_name('username').send_keys(Config.MAPFRE_USERNAME)
+        browser.find_element_by_name('password').send_keys(Config.MAPFRE_PASSWORD)
         browser.find_element_by_xpath("//input[@value='Login']").click()
 
         quote_url = 'http://homeowner.abcdelseguro.com/Application/GenerateQuote.aspx'
@@ -687,8 +687,8 @@ def quote():
 def quote():
     url = 'http://protec.abcdelseguro.com/Account/Login?localAppReturn=%2fLogin.aspx&app=10&test=http%3a%2f%2fhomeowner.abcdelseguro.com'
     browser.get(url)
-    browser.find_element_by_name('username').send_keys('upall')
-    browser.find_element_by_name('password').send_keys('mae790')
+    browser.find_element_by_name('username').send_keys(Config.MAPFRE_USERNAME)
+    browser.find_element_by_name('password').send_keys(Config.MAPFRE_PASSWORD)
     browser.find_element_by_xpath("//input[@value='Login']").click()
 
     quote_url = 'http://homeowner.abcdelseguro.com/Application/GenerateQuote.aspx'
