@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      <div class="container">
+          <div class="row">
+              
+                <form class="col-lg-8 offset-2" method="POST" action="/get-quote">
+                    <hr>
+                    <h2 class="h4">Personal Information</h2>
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
+                                        </div>
+                                        <input type="text" class="form-control" value="{{client.fn}}" name="first_name">
+                                      </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.ln}}" name="last_name">
+                                          </div>
+                        </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-md-7">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                                        </div>
+                                        <input type="text" class="form-control" value="{{client.email}}" name="email">
+                            </div>
+                            </div>
+                            <div class="col-md-5">
+                                                <div class="input-group input-group-sm mb-3">
+                                                    <div class="input-group-prepend">
+                                                      <span class="input-group-text" id="inputGroup-sizing-sm">Phone</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="({{client.phone_1}}) {{client.phone_2}}-{{client.phone_3}}" name="phone">
+                                                  </div>
+                            </div>
+        
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroup-sizing-sm">Street</span>
+                                </div>
+                                <input type="text" class="form-control" value="{{client.street}}" name="street">
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-sm">City</span>
+                                    </div>
+                                    <input type="text" class="form-control" value="{{client.city}}" name="city">
+                                  </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">State</span>
+                            </div>
+                            <input type="text" class="form-control" value="{{client.state}}" name="state">
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="inputGroup-sizing-sm">Zip</span>
+                                </div>
+                                <input type="text" class="form-control" value="{{client.zip_code}}" name="zip_code">
+                              </div>
+                </div>
+            </div>
+
+                        <hr>
+
+                        <h2 class="h4">Property Information</h2>
+                        <div class="row">
+                                <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Street</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.mex_street}}" name="mex_street">
+                                          </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">City</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.mex_city}}" name="mex_city">
+                                              </div>
+                                </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">State</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.mex_state}}" name="mex_state">
+                                          </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Zip</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.mex_zip_code}}" name="mex_zip_code">
+                                              </div>
+                                </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Client Type</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.type_of_risk}}" name="type_of_risk">
+                                          </div>
+                                          
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Property Use</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.use_of_property}}" name="use_of_property">
+                                          </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Property Type</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.type_of_property}}" readonly name="type_of_property">
+                                          </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Underground Floors</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.underground_floors}}"readonly name="underground_floors">
+                                          </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Roof Type</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.roof_type}}" readonly name="roof_type">
+                                              </div>
+                                              </div>
+                                
+                                <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Main Dwelling</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.main_dwelling}}" readonly name="main_dwelling">
+                                              </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                    <div class="col-md-4">
+                                            <div class="input-group input-group-sm mb-3">
+                                                    <div class="input-group-prepend">
+                                                      <span class="input-group-text" id="inputGroup-sizing-sm">Storm Shutters</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="{{client.storm_shutters}}" readonly name="storm_shutters">
+                                                  </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                            <div class="input-group input-group-sm mb-3">
+                                                    <div class="input-group-prepend">
+                                                      <span class="input-group-text" id="inputGroup-sizing-sm">Adjacent Structures</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="{{client.adjacent_structures}}" readonly name="adjacent_structures">
+                                                  </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                            <div class="input-group input-group-sm mb-3">
+                                                    <div class="input-group-prepend">
+                                                      <span class="input-group-text" id="inputGroup-sizing-sm">Number of Stories</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="{{client.number_of_stories}}" name="number_of_stories">
+                                                  </div>
+                                    </div>
+                                </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                        Less than 500 Meters from Ocean:
+                                        <br>
+                                            {% if client.coast_line == 'Less than 500 Meters' %}
+                                            <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="coast_line" id="inlineRadio1" value="Yes" checked>
+                                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                                  </div>
+                                                  <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="coast_line" id="inlineRadio2" value="No">
+                                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                                  </div>
+                                            {% elif client.coast_line == 'More than 500 Meters' %}
+                                                <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="coast_line" id="inlineRadio1" value="Yes">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                                </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="coast_line" id="inlineRadio2" value="No" checked>
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                              </div>
+                                            {% endif %}
+                                            </div>
+                              
+
+                                <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Meters above Sea Level</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.sea_level}}" readonly name="sea_level">
+                                              </div>
+                                </div>
+                            </div>
+<hr>
+                            <h2 class="h4">Dwelling Limits</h2>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Dwelling $</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.dwelling_amount}}" name="dwelling_amount">
+                                          </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Contents $</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.contents}}" name="contents">
+                                              </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Burglary $</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.burglary}}" name="burglary">
+                                          </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Liability $</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.liability}}" name="liability">
+                                              </div>
+                                    </div>
+                                </div>   
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Valuable Items $</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.valuable_items}}" name="valuable_items">
+                                          </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Money $</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.money}}" name="money">
+                                              </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-sm">Glass $</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{client.breakage}}" name="breakage">
+                                          </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Electronics $</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.electric}}" name="electric">
+                                              </div>
+                                    </div>
+                                </div>
+                             
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        Loss of Rents:
+                                        <br>
+                                                {% if client.loss_of_rents == 'true' %}
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="loss_of_rents" id="inlineRadio1" value="Yes" checked>
+                                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                                  </div>
+                                                
+                                                  <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="loss_of_rents" id="inlineRadio2" value="No">
+                                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                                  </div>
+                                                 {% elif client.loss_of_rents == 'false' %}
+                                                 <div class="form-check form-check-inline">
+                                                 <input class="form-check-input" type="radio" name="loss_of_rents" id="inlineRadio1" value="Yes">
+                                                 <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                                 </div>
+                                               
+                                             
+                                               <div class="form-check form-check-inline">
+                                                 <input class="form-check-input" type="radio" name="loss_of_rents" id="inlineRadio2" value="No" checked>
+                                                 <label class="form-check-label" for="inlineRadio2">No</label>
+                                               </div>
+                                               {% endif %}
+
+
+                                    
+                                </div>
+                            
+                              </div>
+
+                              <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="input-group input-group-sm mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="inputGroup-sizing-sm">Other Structures $</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{client.other_structures}}" name="other_structures">
+                                              </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                                <div class="input-group input-group-sm mb-3">
+                                                    <div class="input-group-prepend">
+                                                      <span class="input-group-text" id="inputGroup-sizing-sm">Outdoor Property $</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="{{client.outdoor_property}}" name="outdoor_property">
+                                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="input-group input-group-sm mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-sm">Quotation Number</span>
+                                          </div>
+                                          <input type="text" class="form-control" name="quote_num">
+                                        </div>
+                                  </div>
+                              </div>
+                              <button type="submit" class="btn btn-primary btn-sm">Generate Quote</button>
+                              <button type="submit" formaction="/update-quote" class="btn btn-warning btn-sm text-white">Update Current Quote</button>
+                  </form>
+                </div>
+          <hr>
+          <br>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

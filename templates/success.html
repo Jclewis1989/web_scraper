@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  </head>
+
+  <body>
+<div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="row p-5">
+                            <div class="col-md-6">
+                                <img src="https://www.mexicanautoinsurance.com/img/lewis-and-lewis-logo-footer.jpg">
+                                <hr>
+                                <p class="mb-1">California Surplus Line Insurance Broker License #0645420</p>
+                                <p class="mb-1">Lewis and Lewis Insurance Agency, Inc.</p>
+                                <p class="mb-1">11900 W. Olympic BLVD, Suite 475</p>
+                                <p class="mb-1">Los Angeles, California 90064</p>
+                                <p class="mb-1">Info@MexicanAutoInsurance.com | (310) 207-7700</p>
+                            </div>
+    
+                            <div class="col-md-6 text-right">
+                                <p class="font-weight-bold mb-1">Quote Valid:</p>
+                                <p class="mb-1">Date: 10/08/2020</p>
+                        
+                                <p class="mb-1"><strong>All Risk</strong></p>
+                                <p class="mb-1"><strong>Hurricane</strong></p>
+                                <p class="mb-1"><strong>Earthquake</strong></p>
+                            </div>
+                        </div>
+    
+                        <hr class="my-5">
+    
+                        <div class="row pb-5 p-5">
+                            <div class="col-md-6">
+                                <p class="font-weight-bold mb-4">Client &amp; Property Information</p>
+                                <p class="mb-1">{{ r.first_name}}  {{ r.last_name }}</p>
+                                <p class=mb-1>{{ r.mex_street }}</p>
+                                <p class="mb-1">{{ r.mex_city }} {{r.mex_state}}</p>
+                                <p class="mb-1">{{r.mex_zip_code}}</p>
+                            </div>
+    
+                            <div class="col-md-6 text-right">
+                                <p class="font-weight-bold mb-4">Coverage Details:</p>
+                                <p class="mb-1"><span class="text-muted">Dwelling: </span> ${{r.dwelling_amount}}</p>
+                                <p class="mb-1"><span class="text-muted">Liability: </span> ${{r.liability}}</p>
+                                <p class="mb-1"><span class="text-muted">Contents: </span> ${{r.contents}}</p>
+                                <p class="mb-1"><span class="text-muted">Burglary: </span> ${{r.burglary}}</p>
+                                <p class="mb-1"><span class="text-muted">Valuable Items: </span> ${{r.valuable_items}}</p>
+                                <p class="mb-1"><span class="text-muted">Glass Breakage: </span> ${{r.breakage}}</p>
+                                <p class="mb-1"><span class="text-muted">Money &amp; Securities: </span> ${{r.money}}</p>
+                                <p class="mb-1"><span class="text-muted">Electrical Appliances: </span> ${{r.electric}}</p>
+                                <p class="mb-1"><span class="text-muted">Other Structures: </span> ${{r.other_structures}}</p>
+                                <p class="mb-1"><span class="text-muted">Outdoor Property: </span> ${{r.outdoor_property}}</p>
+                            </div>
+                        </div>
+    
+                        <div class="row p-5">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Net Premium</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Policy Fee</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Tax</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Broker Fee</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Premium</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Total Cost of Insurance</th>
+                                
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>${{net}}</td>
+                                            <td>{{fee}}</td>
+                                            <td>{{tax}}</td>
+                                            <td>${{broker_fee}}</td>
+                                            <td>{{tp}}</td>
+                                            <td>${{tcoi}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+    
+                        <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+                            <div class="py-3 px-5 text-right">
+                                <div class="mb-2">Total Cost of Insurance</div>
+                                <div class="h2 font-weight-light">${{tcoi}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
